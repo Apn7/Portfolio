@@ -1,88 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>    
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
     <!--CSS-->
-    <link rel = "stylesheet" href="assets/css/style.css">
-
-
+    <link rel="stylesheet" href="assets/css/style.css" />
 
     <title>Portfolio Website</title>
-</head>
-<body>
+  </head>
+  <body>
     <!--Header-->
-    <header class="header" id = "header">
-        <nav class="nav container">
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li>
-                        <a href="#home" class="nav__link active-link">Hello</a>
-                    </li>
-                    <li>
-                        <a href="#services" class="nav__link ">Services</a>
-                    </li>
-                    <li>
-                        <a href="#resume" class="nav__link">Resume</a>
-                    </li>
-                    <li>
-                        <a href="#portfolio" class="nav__link">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#blog" class="nav__link">Blog</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="nav__link">Contact</a>
-                    </li>
-                </ul>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="#home" class="nav__link active-link">Hello</a>
+            </li>
+            <li>
+              <a href="#services" class="nav__link">Projects</a>
+            </li>
+            <li>
+              <a href="#resume" class="nav__link">Resume</a>
+            </li>
+            <li>
+              <a href="#portfolio" class="nav__link">Portfolio</a>
+            </li>
+            <li>
+              <a href="#blog" class="nav__link">Blog</a>
+            </li>
+            <li>
+              <a href="#contact" class="nav__link">Contact</a>
+            </li>
+          </ul>
 
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-fill"></i>
-                </div>
-            </div>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-menu-fill"></i>
-            </div>
-        </nav>
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-fill"></i>
+          </div>
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-fill"></i>
+        </div>
+      </nav>
     </header>
     <!--Main-->
     <main class="main">
-    <section class = "home" id = "home">
-        <div class = "home__container container grid">
-            <img src="assets/img/DP.webp" alt="" class="home__img"/>
-            
-            <div class="home__data">
-                <h1 class="home__name">Ekramul Alam</h1>
-                <p class="home__work">CSE Undergradute</p>
-                <dl class="home__list">
-                    <dt>Email: </dt>
-                    <dd>ekramul.alam21@gmail.com </dd>
-                    <dt>Phone: </dt>
-                    <dd>01752729605</dd>
-                    <dt>Address: </dt>
-                    <dd>Mirpur-14, Dhaka-1206, Bangladesh</dd>
-                </dl>
-                <div class = "home__socials">
-                    <a href="https://github.com/Apn7" target ="__blank" class="home__social-link">
-                        <i class="ri-github-fill"></i>
-                    </a>
-                    <a href="https://www.facebook.com/ekram.apan.7/" target ="__blank" class="home__social-link">
-                        <i class="ri-facebook-box-fill"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ekramul-alam-525659255/" target ="__blank" class="home__social-link">
-                        <i class="ri-linkedin-box-fill"></i>
-                    </a>
-                </div>
-            </div>    
+      <!--Home-->
+      <section class="home" id="home">
+        <div class="home__container container grid">
+          <img src="assets/img/DP.webp" alt="" class="home__img" />
+
+          <div class="home__data">
+            <h1 class="home__name">Ekramul Alam</h1>
+            <p class="home__work">CSE Undergradute</p>
+            <dl class="home__list">
+              <dt>Email:</dt>
+              <dd>ekramul.alam21@gmail.com</dd>
+              <dt>Phone:</dt>
+              <dd>01752729605</dd>
+              <dt>Address:</dt>
+              <dd>Mirpur-14, Dhaka-1206, Bangladesh</dd>
+            </dl>
+            <div class="home__socials">
+              <a
+                href="https://github.com/Apn7"
+                target="__blank"
+                class="home__social-link"
+              >
+                <i class="ri-github-fill"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/ekram.apan.7/"
+                target="__blank"
+                class="home__social-link"
+              >
+                <i class="ri-facebook-box-fill"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ekramul-alam-525659255/"
+                target="__blank"
+                class="home__social-link"
+              >
+                <i class="ri-linkedin-box-fill"></i>
+              </a>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+      <!--hello-->
+      <section class="hello section container">
+        <h2 class="section__title">Hello! I'm Ekramul.</h2>
+        <p class="hello__details text-lg">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus
+          totam obcaecati, eos iusto dicta distinctio? Repellat deleniti
+          necessitatibus iusto eos, sequi aperiam, ut, vel quibusdam blanditiis
+          asperiores magnam hic ducimus?
+        </p>
+        <a
+          href="assets/img/My Resume.pdf"
+          class="button button--flex text-sm"
+          target="_blank"
+        >
+          <i class="ri-download-2-line"> DOWNLOAD RESUME </i>
+        </a>
+      </section>
+      <!--Contact-->
+      <section class="contact section" id="contact">
+        <div class="contact__content container">
+            <h2 class="section__title">
+                Contact Me
+            </h2>
+            <div class="contact__container grid">
+                <div class="contact__info">
+                    <dl class="contact__list">
+                        <dt>Phone: </dt>
+                        <dd>01752729605</dd>
+                        <dt>Email: </dt>
+                        <dd>ekramul.alam21@gmail.com</dd>
+                    </dl>
+
+                    <ul class="contact__socials">
+                        <li>
+                            <a href="https://www.facebook.com/ekram.apan.7/" class="contact__social-link">
+                                <i class="ri-facebook-box-fill"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ekramul-alam-525659255/" class="contact__social-link">
+                                <i class="ri-linkedin-box-fill"></i>
+                            </a>
+                            <a href="https://github.com/Apn7" class="contact__social-link">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact__form">
+                    <p class="contact__form-title">Or just write me a letter here</p>
+                    <form action="" id="contact-form">
+                        <div class="contact__input-div">
+                            <input type="text" name="name" placeholder="Your name" class ="contact__input" id="contact-name">
+                        </div>
+                        <div class="contact__input-div">
+                            <input type="email" name="email" placeholder="Your e-mail" class ="contact__input" id="contact-email">
+                        </div>
+                        <div class="contact__input-div">
+                            <textarea name="message" placeholder="Type the message here" class ="contact__input textarea" id="message" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <p class="contact__message text-sm" id="contact-message">
+                        </p>
+                        <button type="submit" class="button contact__button">
+                            Send Message
+                        </button>
+                    </form>
+
+                    <p class="footer__copy">
+                        &copy; 2021 Ekramul Alam. All right reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
     </main>
+    <!-- email js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+
+    </script>
     <!--JS-->
-    <script src = "assets/js/main.js"></script>
-</body>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
