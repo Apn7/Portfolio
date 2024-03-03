@@ -78,7 +78,7 @@ $data = mysqli_fetch_array($result);
     <!--Home-->
     <section class="home" id="home">
       <div class="home__container container grid">
-        <img src="assets/img/DP.webp" alt="" class="home__img" />
+        <img src="<?= $data['img_url'] ?>" alt="" class="home__img" />
 
         <div class="home__data">
           <h1 class="home__name">
@@ -122,11 +122,6 @@ $data = mysqli_fetch_array($result);
       </h2>
       <p class="hello__details text-lg">
         <?= $data['about'] ?>
-        <br>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus
-        totam obcaecati, eos iusto dicta distinctio? Repellat deleniti
-        necessitatibus iusto eos, sequi aperiam, ut, vel quibusdam blanditiis
-        asperiores magnam hic ducimus?
       </p>
       <a href="assets/img/My Resume.pdf" class="button button--flex text-sm" target="_blank">
         <i class="ri-download-2-line"> DOWNLOAD RESUME </i>
@@ -331,6 +326,7 @@ $data = mysqli_fetch_array($result);
               <h3 class="services__title text-lg">
                 <?= $rows['pname'] ?>
               </h3>
+              <img src="<?= $rows['pimg'] ?>" alt="" class="services__img" />
               <p class="services__detail">
                 <?= $rows['details'] ?>
               </p>
@@ -352,20 +348,20 @@ $data = mysqli_fetch_array($result);
           <div class="contact__info">
             <dl class="contact__list">
               <dt>Phone:</dt>
-              <dd>01752729605</dd>
+              <dd><?= $data['phone'] ?></dd>
               <dt>Email:</dt>
-              <dd>ekramul.alam21@gmail.com</dd>
+              <dd><?= $data['email'] ?></dd>
             </dl>
 
             <ul class="contact__socials">
               <li>
-                <a href="https://www.facebook.com/ekram.apan.7/" class="contact__social-link">
+                <a href="<?= $data['facebook'] ?>" class="contact__social-link">
                   <i class="ri-facebook-box-fill"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/ekramul-alam-525659255/" class="contact__social-link">
+                <a href="<?= $data['linkedin'] ?>" class="contact__social-link">
                   <i class="ri-linkedin-box-fill"></i>
                 </a>
-                <a href="https://github.com/Apn7" class="contact__social-link">
+                <a href="<?= $data['github'] ?>" class="contact__social-link">
                   <i class="ri-github-fill"></i>
                 </a>
               </li>
@@ -411,7 +407,7 @@ $data = mysqli_fetch_array($result);
             </form>
 
             <p class="footer__copy">
-              &copy; 2021 Ekramul Alam. All right reserved.
+              &copy; 2021 <a href="adminlogin.php">Ekramul Alam.</a> All rights reserved.
             </p>
           </div>
         </div>

@@ -3,6 +3,11 @@ include 'include/config.php';
 
 session_start();
 
+if (isset($_SESSION['admin'])) {
+    header("Location: admin_dashboard.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($con, $_POST['username']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -64,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #4caf50;
+            background-color: #029ed7;
             color: #fff;
             border: none;
             border-radius: 5px;

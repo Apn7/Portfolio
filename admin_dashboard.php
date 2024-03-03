@@ -3,7 +3,7 @@ include 'include/config.php';
 session_start();
 
 if (!isset($_SESSION['admin'])) {
-    header("Location: admin_login.php");
+    header("Location: adminlogin.php");
     exit();
 }
 
@@ -23,6 +23,19 @@ $experienceResult = mysqli_query($con, $experienceQuery);
 // SQL query to retrieve data from the 'contact' table
 $contactQuery = "SELECT * FROM contact";
 $contactResult = mysqli_query($con, $contactQuery);
+
+//delete contact message
+if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $deleteQuery = "DELETE FROM contact WHERE id = $id";
+    mysqli_query($con, $deleteQuery);
+    header("Location: admin_dashboard.php");
+    exit();
+}
+
+// Fetch projects details from the database
+$projectsQuery = "SELECT * FROM projects";
+$projectsResult = mysqli_query($con, $projectsQuery);
 
 // Check if form is submitted for updating user details
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -53,6 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['title'])) {
             $title = $_POST['title'];
             $updateQuery .= "title='$title', ";
+        }
+
+        if (!empty($_POST['img_url'])) {
+            $img_url = $_POST['img_url'];
+            $updateQuery .= "img_url='$img_url', ";
         }
 
         if (!empty($_POST['facebook'])) {
@@ -174,6 +192,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: admin_dashboard.php");
         exit();
     }
+
+    //Update project details
+    if(isset($_POST["updateProject"])){
+        $project_id = $_POST["project_id"];
+        $project_title = $_POST["project_title"];
+        $project_description = $_POST["project_description"];
+        $project_url = $_POST["project_url"];
+        $project_img = $_POST["project_pimg"];
+        $project_ul = $_POST["project_ul"];
+        $updateProjectQuery = "UPDATE projects SET pname='$project_title', details='$project_description', plink='$project_url', pimg='$project_img', ul ='$project_ul' WHERE id = $project_id";
+        mysqli_query($con, $updateProjectQuery);
+        header("Location: admin_dashboard.php");
+        exit();
+    }
+
+    //Add new project details
+    if(isset($_POST["addProject"])){
+        $new_project_title = $_POST["new_project_title"];
+        $new_project_img = $_POST["new_project_img"];
+        $new_project_description = $_POST["new_project_description"];
+        $new_project_url = $_POST["new_project_url"];
+        $new_project_ul = $_POST["new_project_ul"];
+        $addProjectQuery = "INSERT INTO projects (pname, pimg , details, plink, ul) VALUES ('$new_project_title', '$new_project_img' , '$new_project_description', '$new_project_url','$new_project_ul')";
+        mysqli_query($con, $addProjectQuery);
+        header("Location: admin_dashboard.php");
+        exit();
+    }
+
+    //Delete project details
+    if(isset($_POST["deleteProject"])){
+        $project_id = $_POST["project_id"];
+        $deleteProjectQuery = "DELETE FROM projects WHERE id = $project_id";
+        mysqli_query($con, $deleteProjectQuery);
+        header("Location: admin_dashboard.php");
+        exit();
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -219,12 +273,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .form-group textarea[name="about"] {
             resize: vertical;
             height: 100px;
-            /* Adjust the height as per your requirement */
         }
 
         .form-group button {
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #029ed7;
             color: #fff;
             border: none;
             border-radius: 3px;
@@ -265,7 +318,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .education td button {
             padding: 5px 10px;
-            background-color: #4CAF50;
+            background-color: #029ed7;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .projects {
+            margin-top: 100px;
+        }
+
+        .projects h2 {
+            text-align: center;
+        }
+
+        .projects table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .projects th,
+        .projects td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .projects th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .projects td input,
+        .projects td textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .projects td button {
+            padding: 5px 10px;
+            background-color: #029ed7;
             color: #fff;
             border: none;
             border-radius: 3px;
@@ -306,7 +400,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .experience td button {
             padding: 5px 10px;
-            background-color: #4CAF50;
+            background-color: #029ed7;
             color: #fff;
             border: none;
             border-radius: 3px;
@@ -345,6 +439,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .contact .card p{
             color: #555;
         }
+
+        .logout{
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .logout button{
+            padding: 10px 20px;
+            background-color: #029ed7;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s
+        }
+
     </style>
 </head>
 
@@ -380,6 +492,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <label for="title">Title:</label>
                 <input type="text" name="title" value="<?php echo $row['title']; ?>">
+                <button type="submit" name="update_user">Update</button>
+            </div>
+
+            <div class="form-group">
+                <label for="img_url">Img_url:</label>
+                <input type="text" name="img_url" value="<?php echo $row['img_url']; ?>">
                 <button type="submit" name="update_user">Update</button>
             </div>
 
@@ -496,6 +614,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </table>
     </div>
 
+    <div class="projects">
+        <h2>Projects</h2>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Details</th>
+                <th>Link</th>
+                <th>Image</th>
+                <th>Used Language</th>
+                <th>Actions</th>
+            </tr>
+            <?php while ($projectsRow = mysqli_fetch_assoc($projectsResult)) { ?>
+                <tr>
+                    <form method="POST" action="">
+                        <td><input type="text" name="project_title" value="<?php echo $projectsRow['pname']; ?>"></td>
+                        <td><textarea name="project_description" rows="2"><?php echo $projectsRow['details']; ?></textarea></td>
+                        <td><input type="text" name="project_url" value="<?php echo $projectsRow['plink']; ?>"></td>
+                        <td><input type="text" name="project_pimg" value="<?php echo $projectsRow['pimg']; ?>"></td>
+                        <td><input type="text" name="project_ul" value="<?php echo $projectsRow['ul']; ?>"></td>
+                        <td>
+                            <input type="hidden" name="project_id" value="<?php echo $projectsRow['id']; ?>">
+                            <button type="submit" name="updateProject">Update</button>
+                            <button type="submit" name="deleteProject">Delete</button>
+                        </td>
+                    </form>
+                </tr>
+            <?php } ?>
+            <tr>
+                <th colspan="5">Add New Project</th>
+            </tr>
+            <tr>
+                <form method="POST" action="">
+                    <td><input type="text" name="new_project_title"></td>
+                    <td><textarea name="new_project_description" rows="2"></textarea></td>
+                    <td><input type="text" name="new_project_url"></td>
+                    <td><input type="text" name="new_project_img"></td>
+                    <td><input type="text" name="new_project_ul"></td>
+                    <td>
+                        <button type="submit" name="addProject">Add</button>
+                    </td>
+                </form>
+            </tr>
+        </table>      
+    </div>
+
     <div class="contact">
         <h2>Contact Messages</h2>
         <div class="container">
@@ -506,6 +669,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p>Name: {$row['name']}</p>
                     <p>Email: {$row['email']}</p>
                     <h3>Message: {$row['message']}</h3>
+                    <a href='admin_dashboard.php?delete={$row['id']}'>Delete</a>
                   </div>";
                 }
             } else {
@@ -514,6 +678,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
         </div>
     </div>
+    <div class="logout">
+        <button><a href="adminlogout.php">Log out</a></button>
+    </div>
 </body>
-
 </html>

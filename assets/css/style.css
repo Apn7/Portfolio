@@ -100,8 +100,8 @@ input {
 }
 
 .section {
-  padding-top: 3.75rem;
-  padding-bottom: 3.75rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .section__title {
@@ -333,6 +333,22 @@ input {
   margin: 0.9em 0 0.23em;
 }
 
+@keyframes typing {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+.home__work {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3.5s steps(30, end) infinite;
+  font-size: var(--fs-lg);
+}
+
 .home__work {
   margin-bottom: 2.5em;
 }
@@ -413,7 +429,6 @@ main.row{
 }
 
 .col header.title{
-  color: var(--primary-color);
   padding: 0px 0px 20px 30px;
 }
 
@@ -462,6 +477,7 @@ main.row{
 }
 
 .box p{
+  padding-top: 15px;
   line-height: 1.2;
   color: #666;
   font-size: 1em;
@@ -526,18 +542,17 @@ main.row{
 .services__item{
   border: 1px solid var(--border-color);
   padding: 2.5rem 1.25rem 1.875rem;
-  text-align: center;
 }
 
 .services__title{
-  
-  font-size: 1.5em;
+  font-size: 1.2em;
   padding: 10px 0px 6px;
   color: var(--primary-color);
-  
 }
 
 .services__lang{
+  padding-top: 10px;
+  bottom: 10px;
   margin-top: .9375rem;
   font-size: var(--fs-sm);
   line-height: 1.43rem;
@@ -560,6 +575,7 @@ main.row{
 }
 
 .services__detail{
+  padding-top: 10px; ;
   line-height: 1.2;
   color: #666;
   font-size: 1em;
