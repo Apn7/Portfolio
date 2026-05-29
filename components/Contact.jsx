@@ -113,6 +113,19 @@ export default function Contact() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
               <a
+                href={profile.socials.codeforces}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact__social-link"
+                aria-label="Codeforces"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="4" y="8" width="4" height="14" rx="1" fill="currentColor" stroke="none" />
+                  <rect x="10" y="3" width="4" height="19" rx="1" fill="currentColor" stroke="none" />
+                  <rect x="16" y="13" width="4" height="9" rx="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+              <a
                 href={profile.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
