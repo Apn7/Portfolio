@@ -1161,3 +1161,117 @@ textarea.contact__input {
   margin-top: auto;
 }
 
+/* ===== Comic Avatar ===== */
+.comic-avatar-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  z-index: 1001; /* Above standard navbar / elements */
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.comic-avatar-wrapper {
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.comic-avatar-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid var(--text-primary);
+  background: var(--surface);
+  box-shadow: 6px 6px 0 var(--text-primary);
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.comic-avatar-wrapper:hover .comic-avatar-img {
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.comic-bubble {
+  position: absolute;
+  left: 105px;
+  bottom: 45px;
+  background: #ffffff;
+  border: 4px solid var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  width: 240px;
+  box-shadow: 6px 6px 0 var(--text-primary);
+  pointer-events: auto;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+}
+
+/* Comic bubble tail */
+.comic-bubble::after,
+.comic-bubble::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  bottom: 12px;
+  border-style: solid;
+  display: block;
+  width: 0;
+}
+
+.comic-bubble::before {
+  border-color: transparent var(--text-primary) transparent transparent;
+  border-width: 12px 12px 12px 0;
+  left: -16px;
+  z-index: 1;
+}
+
+.comic-bubble::after {
+  border-color: transparent #ffffff transparent transparent;
+  border-width: 8px 8px 8px 0;
+  left: -8px;
+  z-index: 2;
+  bottom: 16px;
+}
+
+.comic-bubble__close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: var(--error);
+  color: white;
+  border: 3px solid var(--text-primary);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--text-primary);
+}
+
+.comic-bubble__close:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .comic-avatar-img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .comic-bubble {
+    left: 80px;
+    bottom: 30px;
+    width: 200px;
+    font-size: var(--fs-xs);
+  }
+}
+
+

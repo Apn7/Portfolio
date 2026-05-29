@@ -5,6 +5,7 @@ import Activities from "@/components/Activities";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import ComicAvatar from "@/components/ComicAvatar";
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
       <Skills />
       <Projects />
       <Contact />
+      <ComicAvatar />
     </>
   );
 }
+
 
