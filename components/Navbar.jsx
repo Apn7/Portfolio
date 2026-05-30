@@ -65,13 +65,18 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <button
-          className="navbar__toggle"
-          onClick={() => setMobileOpen(true)}
-          aria-label="Open menu"
-        >
-          <Menu size={24} />
-        </button>
+        <div className="navbar__right">
+          <a href="#contact" className="navbar__cta">
+            Hire Me
+          </a>
+          <button
+            className="navbar__toggle"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu size={24} />
+          </button>
+        </div>
 
         {/* Mobile overlay */}
         <div
