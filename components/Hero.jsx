@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { profile } from "@/lib/data";
 import { Mail, Phone, MapPin, Download } from "lucide-react";
 import Image from "next/image";
+import HeroBackground from "./HeroBackground";
+import HeroComicSlides from "./HeroComicSlides";
 
 const titles = ["CSE Undergraduate", "Full-Stack Developer", "Competitive Programmer", "Problem Solver"];
 
@@ -32,6 +34,8 @@ export default function Hero() {
 
   return (
     <section className="hero" id="home">
+      <HeroComicSlides />
+      <HeroBackground />
       <div className="hero__container container">
         <div className="hero__image-wrapper">
           <div className="hero__image-ring">
