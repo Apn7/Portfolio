@@ -50,7 +50,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="section" id="contact">
+    <section className="section section--dots" id="contact">
       <div className="container">
         <h2 className="section__title">
           Contact Me

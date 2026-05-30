@@ -12,7 +12,7 @@ const getIcon = (role) => {
 
 export default function Activities() {
   return (
-    <section className="section" id="activities">
+    <section className="section section--dots" id="activities">
       <div className="container">
         <h2 className="section__title">
           Activities & Achievements

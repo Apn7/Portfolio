@@ -3,7 +3,7 @@ import { Download } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="about section" id="about">
+    <section className="about section section--dots" id="about">
       <div className="container">
         <h2 className="section__title">
           {profile.hello}
