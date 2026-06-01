@@ -1,46 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { skills } from "@/lib/data";
+import { Code, Globe, Database, Brain, Wrench, Cpu, MessageSquare } from "lucide-react";
 
-function SkillBar({ name, percentage }) {
-  const [animated, setAnimated] = useState(false);
-  const ref = useRef(null);
+const iconMap = {
+  Code,
+  Globe,
+  Database,
+  Brain,
+  Wrench,
+  Cpu,
+  MessageSquare,
+};
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimated(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
+function SkillTag({ name }) {
   return (
-    <div className="skills__item" ref={ref}>
-      <div className="skills__header">
-        <span className="skills__name">{name}</span>
-        <span className="skills__percentage">{percentage}%</span>
-      </div>
-      <div className="skills__bar">
-        <div
-          className={`skills__fill ${animated ? "skills__fill--animated" : ""}`}
-          style={{ width: animated ? `${percentage}%` : "0%" }}
-        />
-      </div>
-    </div>
+    <span className="skill-tag">
+      {name}
+    </span>
   );
 }
 
 export default function Skills() {
   return (
-    <section className="section" id="skills">
+    <section className="section section--dots" id="skills">
       <div className="container">
         <h2 className="section__title">
           Skills
@@ -51,27 +34,53 @@ export default function Skills() {
         </p>
 
         <div className="skills__grid">
-          <div className="skills__category">
-            <h3 className="skills__category-title">Programming Languages</h3>
-            {skills.programming.map((skill) => (
-              <SkillBar
-                key={skill.name}
-                name={skill.name}
-                percentage={skill.percentage}
-              />
-            ))}
-          </div>
+          {Object.entries(skills).map(([key, cat]) => {
+            const IconComponent = iconMap[cat.icon] || Code;
+            const isWebDev = key === "webDev";
+            const isCommunication = key === "communication";
+            const cardClass = `skills__category ${
+              isWebDev ? "skills__category--webdev" : ""
+            } ${isCommunication ? "skills__category--communication" : ""}`;
 
-          <div className="skills__category">
-            <h3 className="skills__category-title">Web Development</h3>
-            {skills.webDev.map((skill) => (
-              <SkillBar
-                key={skill.name}
-                name={skill.name}
-                percentage={skill.percentage}
-              />
-            ))}
-          </div>
+            return (
+              <div
+                key={key}
+                className={cardClass}
+                style={{ "--badge-hover-color": cat.color }}
+              >
+                <div className="skills__category-header">
+                  <h3 className="skills__category-title">
+                    <IconComponent size={14} className="skills__category-icon-inline" />
+                    {cat.title}
+                  </h3>
+                </div>
+
+                <div className="skills__category-content">
+                  {cat.core && cat.core.length > 0 && (
+                    <div className="skills__group">
+                      <h4 className="skills__group-title">⚡ Core Stack</h4>
+                      <div className="skills__tags">
+                        {cat.core.map((skill) => (
+                          <SkillTag key={skill} name={skill} />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {cat.familiar && cat.familiar.length > 0 && (
+                    <div className="skills__group">
+                      <h4 className="skills__group-title">🌱 Familiar</h4>
+                      <div className="skills__tags">
+                        {cat.familiar.map((skill) => (
+                          <SkillTag key={skill} name={skill} />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
