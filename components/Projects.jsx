@@ -2,6 +2,8 @@ import { projects } from "@/lib/data";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
+const bgColors = ["#dcf4ff", "#fffcc2", "#f0e6ff", "#e8ffdb"];
+
 export default function Projects() {
   return (
     <section className="section" id="projects" style={{ background: "var(--bg-alt)" }}>
@@ -14,7 +16,7 @@ export default function Projects() {
           Things I&apos;ve built and contributed to
         </p>
 
-        <div className="projects__grid">
+        <div className="projects__list">
           {projects.map((project, i) => (
             <a
               key={i}
@@ -22,23 +24,25 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               className="project-card"
+              style={{
+                "--index": i,
+                "--card-bg": bgColors[i % bgColors.length],
+              }}
             >
-              <div className="project-card__image-wrapper">
+              {/* Watermark Background Image */}
+              <div className="project-card__bg-image-wrapper" style={{ position: 'absolute' }}>
                 <Image
                   src={project.image}
                   alt={project.name}
-                  width={400}
-                  height={200}
-                  className="project-card__image"
+                  fill
+                  className="project-card__bg-image"
                 />
-                <div className="project-card__overlay">
-                  <span className="project-card__view">
-                    <ExternalLink size={16} />
-                    View Project
-                  </span>
-                </div>
               </div>
+
               <div className="project-card__body">
+                <span className="project-card__segment-label">
+                  SEGMENT 0{i + 1}
+                </span>
                 <h3 className="project-card__name">{project.name}</h3>
                 <p className="project-card__desc">{project.details}</p>
                 <div className="project-card__tech">
@@ -47,6 +51,11 @@ export default function Projects() {
                       {t.trim()}
                     </span>
                   ))}
+                </div>
+                <div className="project-card__cta-wrapper">
+                  <span className="project-card__cta">
+                    View Project <ExternalLink size={14} />
+                  </span>
                 </div>
               </div>
             </a>

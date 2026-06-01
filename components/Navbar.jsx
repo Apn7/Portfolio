@@ -66,9 +66,6 @@ export default function Navbar() {
         </ul>
 
         <div className="navbar__right">
-          <a href="#contact" className="navbar__cta">
-            Hire Me
-          </a>
           <button
             className="navbar__toggle"
             onClick={() => setMobileOpen(true)}
