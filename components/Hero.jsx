@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState, useLayoutEffect, useRef } from "react";
 import { profile } from "@/lib/data";
 import { Mail, Phone, MapPin, Download } from "lucide-react";
 import Image from "next/image";
@@ -17,6 +17,9 @@ export default function Hero() {
   const [deleting, setDeleting] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [animationStyles, setAnimationStyles] = useState(null);
+  
+  const heroRef = useRef(null);
+  const [inView, setInView] = useState(true);
 
   useSafeLayoutEffect(() => {
     setMounted(true);
@@ -101,8 +104,25 @@ export default function Hero() {
     return () => clearTimeout(timeout);
   }, [charIndex, deleting, titleIndex]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.5, // Reset when 50% of the section goes out of view
+      }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="home" ref={heroRef}>
       <HeroComicSlides />
       <HeroBackground />
       <div className="hero__container container">
@@ -121,7 +141,7 @@ export default function Hero() {
 
         <div className="hero__content">
           <span
-            className={`hero__greeting ${animationStyles ? "animate-arrange" : ""}`}
+            className={`hero__greeting ${animationStyles && inView ? "animate-arrange" : ""}`}
             style={{
               opacity: mounted && !animationStyles ? 0 : 1,
               ...animationStyles?.greeting,
@@ -131,7 +151,7 @@ export default function Hero() {
           </span>
 
           <h1
-            className={`hero__name ${animationStyles ? "animate-arrange" : ""}`}
+            className={`hero__name ${animationStyles && inView ? "animate-arrange" : ""}`}
             style={{
               opacity: mounted && !animationStyles ? 0 : 1,
               ...animationStyles?.name,
@@ -141,7 +161,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className={`hero__title ${animationStyles ? "animate-arrange" : ""}`}
+            className={`hero__title ${animationStyles && inView ? "animate-arrange" : ""}`}
             style={{
               opacity: mounted && !animationStyles ? 0 : 1,
               ...animationStyles?.title,
@@ -153,7 +173,7 @@ export default function Hero() {
 
           <div className="hero__info-list">
             <div
-              className={`hero__info-item ${animationStyles ? "animate-arrange" : ""}`}
+              className={`hero__info-item ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.info0,
@@ -165,7 +185,7 @@ export default function Hero() {
               {profile.email}
             </div>
             <div
-              className={`hero__info-item ${animationStyles ? "animate-arrange" : ""}`}
+              className={`hero__info-item ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.info1,
@@ -177,7 +197,7 @@ export default function Hero() {
               {profile.phone}
             </div>
             <div
-              className={`hero__info-item ${animationStyles ? "animate-arrange" : ""}`}
+              className={`hero__info-item ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.info2,
@@ -195,7 +215,7 @@ export default function Hero() {
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`btn btn--primary ${animationStyles ? "animate-arrange" : ""}`}
+              className={`btn btn--primary ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.btn0,
@@ -206,7 +226,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className={`btn btn--outline ${animationStyles ? "animate-arrange" : ""}`}
+              className={`btn btn--outline ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.btn1,
@@ -221,7 +241,7 @@ export default function Hero() {
               href={profile.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hero__social-link ${animationStyles ? "animate-arrange" : ""}`}
+              className={`hero__social-link ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.social0,
@@ -234,7 +254,7 @@ export default function Hero() {
               href={profile.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hero__social-link ${animationStyles ? "animate-arrange" : ""}`}
+              className={`hero__social-link ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.social1,
@@ -247,7 +267,7 @@ export default function Hero() {
               href={profile.socials.codeforces}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hero__social-link ${animationStyles ? "animate-arrange" : ""}`}
+              className={`hero__social-link ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.social2,
@@ -264,7 +284,7 @@ export default function Hero() {
               href={profile.socials.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hero__social-link ${animationStyles ? "animate-arrange" : ""}`}
+              className={`hero__social-link ${animationStyles && inView ? "animate-arrange" : ""}`}
               style={{
                 opacity: mounted && !animationStyles ? 0 : 1,
                 ...animationStyles?.social3,
