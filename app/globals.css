@@ -786,7 +786,7 @@ button {
 
 .timeline__dot {
   position: absolute;
-  left: -2.05rem;
+  left: -29px;
   top: 6px;
   width: 16px;
   height: 16px;
