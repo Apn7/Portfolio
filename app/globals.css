@@ -1518,14 +1518,14 @@ textarea.contact__input {
 .comic-bubble::before {
   border-color: transparent var(--text-primary) transparent transparent;
   border-width: 12px 12px 12px 0;
-  left: -16px;
+  left: -11px;
   z-index: 1;
 }
 
 .comic-bubble::after {
   border-color: transparent #ffffff transparent transparent;
   border-width: 8px 8px 8px 0;
-  left: -8px;
+  left: -4px;
   z-index: 2;
   bottom: 16px;
 }

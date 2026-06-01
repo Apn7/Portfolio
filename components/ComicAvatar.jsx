@@ -16,7 +16,7 @@ const sectionData = {
   },
   resume: {
     image: "/assets/img/avatar_thinking.png",
-    message: "Here is my timeline. I worked as a part-time dev for TechnoPLUS IT building modular Laravel/Vue apps! 💼",
+    message: "Here is my timeline. I worked as a part-time dev for TechnoPLUS IT building modular Laravel/Vue website! 💼",
   },
   activities: {
     image: "/assets/img/avatar_excited.png",
@@ -24,7 +24,7 @@ const sectionData = {
   },
   skills: {
     image: "/assets/img/avatar_geeky.png",
-    message: "I specialize in React/Next.js, Laravel, C++, and API designs. Drag the sliders to see my comfort level! 💻",
+    message: "I specialize in React/Next.js, Laravel, C++, and API designs. Hover over the stickers to see what I copy-paste daily! 💻",
   },
   projects: {
     image: "/assets/img/avatar_proud.png",
