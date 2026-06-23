@@ -2,8 +2,6 @@ import { projects } from "@/lib/data";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
-const bgColors = ["#dcf4ff", "#fffcc2", "#f0e6ff", "#e8ffdb"];
-
 export default function Projects() {
   return (
     <section className="section section--dots" id="projects" style={{ backgroundColor: "var(--bg-alt)" }}>
@@ -26,7 +24,7 @@ export default function Projects() {
               className="project-card"
               style={{
                 "--index": i,
-                "--card-bg": bgColors[i % bgColors.length],
+                "--card-bg": `var(--card-bg-${(i % 4) + 1})`,
               }}
             >
               {/* Watermark Background Image */}

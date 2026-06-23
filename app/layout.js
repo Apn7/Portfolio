@@ -1,5 +1,6 @@
 import { Inter, Space_Grotesk, Bangers } from "next/font/google";
 import "./globals.css";
+import "./theme.generated.css"; // DP-derived brand tokens; regenerate with `pnpm theme`
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";

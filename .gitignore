@@ -44,3 +44,6 @@ next-env.d.ts
 CLAUDE.md
 AGENTS.md
 
+# theme tooling — local-only build deps (not part of the deployed app)
+/scripts/theme/node_modules
+
