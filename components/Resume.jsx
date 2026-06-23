@@ -3,7 +3,7 @@ import { GraduationCap, Briefcase } from "lucide-react";
 
 export default function Resume() {
   return (
-    <section className="section" id="resume">
+    <section className="section section--dots" id="resume">
       <div className="container">
         <h2 className="section__title">
           Resume
