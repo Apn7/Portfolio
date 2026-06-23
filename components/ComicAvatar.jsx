@@ -50,8 +50,16 @@ export default function ComicAvatar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isSuspicious, setIsSuspicious] = useState(false);
   const [wittyIndex, setWittyIndex] = useState(0);
-
   const timeoutRef = useRef(null);
+  const autoCloseTimeoutRef = useRef(null);
+  const lastSectionRef = useRef("home");
+
+  const triggerAutoClose = () => {
+    if (autoCloseTimeoutRef.current) clearTimeout(autoCloseTimeoutRef.current);
+    autoCloseTimeoutRef.current = setTimeout(() => {
+      setBubbleOpen(false);
+    }, 5000);
+  };
 
   useEffect(() => {
     // Entrance delay for the avatar
@@ -62,6 +70,9 @@ export default function ComicAvatar() {
     // Auto open speech bubble after a short delay
     const bubbleTimer = setTimeout(() => {
       setBubbleOpen(true);
+      if (window.innerWidth < 768) {
+        triggerAutoClose();
+      }
     }, 3000);
 
     // Scroll listener for section detection
@@ -85,32 +96,65 @@ export default function ComicAvatar() {
       clearTimeout(bubbleTimer);
       window.removeEventListener("scroll", handleScroll);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (autoCloseTimeoutRef.current) clearTimeout(autoCloseTimeoutRef.current);
     };
   }, []);
 
   // When active section changes, reset suspicious state and display new section's text
   useEffect(() => {
     if (visible) {
-      setIsSuspicious(false);
-      setBubbleOpen(true);
+      const handle = requestAnimationFrame(() => {
+        setIsSuspicious(false);
+
+        const prevSection = lastSectionRef.current;
+        lastSectionRef.current = activeSection;
+
+        // Only update overlay states if the active section actually changed
+        if (prevSection !== activeSection) {
+          const mobile = window.innerWidth < 768;
+          if (mobile) {
+            // On mobile, only auto-show the bubble when returning to the Hero section
+            if (activeSection === "home") {
+              setBubbleOpen(true);
+              triggerAutoClose();
+            } else {
+              setBubbleOpen(false);
+            }
+          } else {
+            // Desktop behavior: always open when scrolling to a new section
+            setBubbleOpen(true);
+          }
+        }
+      });
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      return () => cancelAnimationFrame(handle);
     }
   }, [activeSection, visible]);
 
   const handleAvatarClick = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    if (autoCloseTimeoutRef.current) clearTimeout(autoCloseTimeoutRef.current);
 
-    setIsSuspicious(true);
-    setWittyIndex(Math.floor(Math.random() * wittyMessages.length));
-    setBubbleOpen(true);
-
-    timeoutRef.current = setTimeout(() => {
+    if (!bubbleOpen) {
       setIsSuspicious(false);
-    }, 4500);
+      setBubbleOpen(true);
+    } else {
+      setIsSuspicious(true);
+      setWittyIndex(Math.floor(Math.random() * wittyMessages.length));
+
+      timeoutRef.current = setTimeout(() => {
+        setIsSuspicious(false);
+      }, 4500);
+    }
+
+    if (window.innerWidth < 768) {
+      triggerAutoClose();
+    }
   };
 
   const closeBubble = (e) => {
     e.stopPropagation();
+    if (autoCloseTimeoutRef.current) clearTimeout(autoCloseTimeoutRef.current);
     setBubbleOpen(false);
   };
 

@@ -42,72 +42,74 @@ export default function Navbar() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
-      <nav className="navbar__inner container">
-        <a href="#home" className="navbar__logo">
-          Ekramul<span>.</span>
-        </a>
+    <>
+      <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+        <nav className="navbar__inner container">
+          <a href="#home" className="navbar__logo">
+            Ekramul<span>.</span>
+          </a>
 
-        <ul className="navbar__links">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className={`navbar__link ${
-                  activeSection === item.href.slice(1)
-                    ? "navbar__link--active"
-                    : ""
-                }`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+          <ul className="navbar__links">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className={`navbar__link ${
+                    activeSection === item.href.slice(1)
+                      ? "navbar__link--active"
+                      : ""
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <div className="navbar__right">
-          <button
-            className="navbar__toggle"
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
-        </div>
-
-        {/* Mobile overlay */}
-        <div
-          className={`navbar__overlay ${
-            mobileOpen ? "navbar__overlay--visible" : ""
-          }`}
-          onClick={closeMobile}
-        />
-
-        {/* Mobile menu */}
-        <div
-          className={`navbar__mobile-menu ${
-            mobileOpen ? "navbar__mobile-menu--open" : ""
-          }`}
-        >
-          <button
-            className="navbar__mobile-close"
-            onClick={closeMobile}
-            aria-label="Close menu"
-          >
-            <X size={24} />
-          </button>
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="navbar__mobile-link"
-              onClick={closeMobile}
+          <div className="navbar__right">
+            <button
+              className="navbar__toggle"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
             >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </nav>
-    </header>
+              <Menu size={24} />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile overlay */}
+      <div
+        className={`navbar__overlay ${
+          mobileOpen ? "navbar__overlay--visible" : ""
+        }`}
+        onClick={closeMobile}
+      />
+
+      {/* Mobile menu */}
+      <div
+        className={`navbar__mobile-menu ${
+          mobileOpen ? "navbar__mobile-menu--open" : ""
+        }`}
+      >
+        <button
+          className="navbar__mobile-close"
+          onClick={closeMobile}
+          aria-label="Close menu"
+        >
+          <X size={24} />
+        </button>
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className="navbar__mobile-link"
+            onClick={closeMobile}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </>
   );
 }

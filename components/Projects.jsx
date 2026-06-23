@@ -6,7 +6,7 @@ const bgColors = ["#dcf4ff", "#fffcc2", "#f0e6ff", "#e8ffdb"];
 
 export default function Projects() {
   return (
-    <section className="section" id="projects" style={{ background: "var(--bg-alt)" }}>
+    <section className="section section--dots" id="projects" style={{ backgroundColor: "var(--bg-alt)" }}>
       <div className="container">
         <h2 className="section__title">
           My Projects

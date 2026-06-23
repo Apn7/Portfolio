@@ -356,7 +356,7 @@ button {
     padding: 5rem 2rem 2rem;
     transform: translateX(100%);
     transition: var(--transition);
-    z-index: 999;
+    z-index: 1020;
   }
 
   .navbar__mobile-menu--open {
@@ -394,7 +394,7 @@ button {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
-    z-index: 998;
+    z-index: 1010;
     opacity: 0;
     pointer-events: none;
     transition: var(--transition);
@@ -715,7 +715,7 @@ button {
 
 /* ===== About ===== */
 .about {
-  background: var(--bg-alt);
+  background-color: var(--bg-alt);
 }
 
 .about__content {
@@ -1487,13 +1487,13 @@ textarea.contact__input {
 
 .comic-bubble {
   position: absolute;
-  left: 105px;
-  bottom: 45px;
+  left: 20px;
+  bottom: 110px;
   background: #ffffff;
   border: 4px solid var(--text-primary);
   border-radius: var(--radius-md);
   padding: 0.75rem 1.25rem;
-  width: 240px;
+  width: 200px;
   box-shadow: 6px 6px 0 var(--text-primary);
   pointer-events: auto;
   font-family: var(--font-heading);
@@ -1508,26 +1508,25 @@ textarea.contact__input {
 .comic-bubble::before {
   content: "";
   position: absolute;
-  left: -20px;
-  bottom: 12px;
+  left: 17px;
   border-style: solid;
   display: block;
   width: 0;
 }
 
 .comic-bubble::before {
-  border-color: transparent var(--text-primary) transparent transparent;
-  border-width: 12px 12px 12px 0;
-  left: -11px;
+  border-color: var(--text-primary) transparent transparent transparent;
+  border-width: 12px 8px 0 8px;
+  bottom: -16px;
   z-index: 1;
 }
 
 .comic-bubble::after {
-  border-color: transparent #ffffff transparent transparent;
-  border-width: 8px 8px 8px 0;
-  left: -4px;
+  border-color: #ffffff transparent transparent transparent;
+  border-width: 8px 6px 0 6px;
+  bottom: -8px;
+  left: 19px;
   z-index: 2;
-  bottom: 16px;
 }
 
 .comic-bubble__close {
@@ -1559,10 +1558,18 @@ textarea.contact__input {
   }
   
   .comic-bubble {
-    left: 80px;
-    bottom: 30px;
-    width: 200px;
+    left: 15px;
+    bottom: 85px;
+    width: 170px;
     font-size: var(--fs-xs);
+  }
+
+  .comic-bubble::before {
+    left: 12px;
+  }
+
+  .comic-bubble::after {
+    left: 14px;
   }
 }
 
