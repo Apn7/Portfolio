@@ -2,11 +2,18 @@
 
 /* ===== Design Tokens ===== */
 :root {
-  /* Colors — Teal palette */
+  /* Colors — Teal palette.
+     NOTE: these are FALLBACK defaults. app/theme.generated.css (imported after
+     this file) overrides the brand tokens with colors sampled from the DP.
+     Regenerate it with `pnpm theme`. RGB channel triplets exist so rgba()
+     overlays can be tinted from the same source — rgba(var(--primary-rgb), a). */
   --primary: #029ed7;
   --primary-light: #71d1ea;
   --primary-dark: #0179a3;
-  --primary-glow: rgba(2, 158, 215, 0.15);
+  --primary-rgb: 2, 158, 215;
+  --primary-light-rgb: 113, 209, 234;
+  --primary-dark-rgb: 1, 121, 163;
+  --primary-glow: rgba(var(--primary-rgb), 0.15);
   --primary-gradient: linear-gradient(135deg, #029ed7 0%, #71d1ea 100%);
 
   /* Surfaces */
@@ -27,6 +34,16 @@
   /* Accent */
   --accent: #7c3aed;
   --accent-light: #a78bfa;
+  --accent-rgb: 124, 58, 237;
+  --accent-light-rgb: 167, 139, 250;
+  --text-on-accent: #ffffff;
+
+  /* Project card tints (overridden per-DP by theme.generated.css) */
+  --card-bg-1: #dcf4ff;
+  --card-bg-2: #fffcc2;
+  --card-bg-3: #f0e6ff;
+  --card-bg-4: #e8ffdb;
+
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
@@ -55,7 +72,7 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.06), 0 4px 10px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 30px rgba(2, 158, 215, 0.15);
+  --shadow-glow: 0 0 30px rgba(var(--primary-rgb), 0.15);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -171,7 +188,7 @@ button {
 }
 
 .section--dots {
-  background-image: radial-gradient(rgba(2, 158, 215, 0.07) 2px, transparent 2px);
+  background-image: radial-gradient(rgba(var(--primary-rgb), 0.07) 2px, transparent 2px);
   background-size: 16px 16px;
   background-color: var(--bg);
 }
@@ -189,7 +206,7 @@ button {
   width: calc(100% - 3rem);
   max-width: var(--container-width);
   height: 4.5rem;
-  background: rgba(2, 158, 215, 0.9); /* Brand teal base */
+  background: rgba(var(--primary-rgb), 0.9); /* Brand base (from DP) */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 3px solid var(--text-primary) !important;
@@ -306,7 +323,7 @@ button {
   border-right: none;
   border-top: none;
   border-bottom: 3px solid var(--text-primary) !important;
-  background: rgba(1, 121, 163, 0.95); /* Deeper solid dark-teal */
+  background: rgba(var(--primary-dark-rgb), 0.95); /* Deeper solid brand shade */
   box-shadow: 0 4px 0 var(--text-primary);
 }
 
@@ -413,9 +430,9 @@ button {
   align-items: center;
   padding-top: calc(var(--nav-height) + 3.5rem);
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(2, 158, 215, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(113, 209, 234, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 50%, rgba(var(--primary-rgb), 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(var(--primary-light-rgb), 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(var(--accent-rgb), 0.04) 0%, transparent 50%),
     var(--bg);
   position: relative;
   overflow: hidden;
@@ -489,8 +506,8 @@ button {
 .hero__greeting {
   display: inline-block;
   width: fit-content;
-  background: #fada1b; /* Graffiti yellow sampled from DP background */
-  color: var(--text-primary);
+  background: var(--accent); /* Accent sampled from DP (see theme.generated.css) */
+  color: var(--text-on-accent);
   border: 2px solid var(--text-primary);
   padding: 0.25rem 0.75rem;
   font-family: var(--font-heading);

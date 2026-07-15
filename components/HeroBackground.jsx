@@ -12,6 +12,13 @@ export default function HeroBackground() {
     const ctx = canvas.getContext("2d");
     let animationFrameId;
 
+    // Pull the live brand color from the theme tokens so the canvas adapts
+    // to whatever theme.generated.css produced from the DP.
+    const primaryRgb =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary-rgb")
+        .trim() || "2, 158, 215";
+
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
@@ -60,8 +67,8 @@ export default function HeroBackground() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        // Soft teal node color
-        ctx.fillStyle = "rgba(2, 158, 215, 0.35)";
+        // Soft brand node color
+        ctx.fillStyle = `rgba(${primaryRgb}, 0.35)`;
         ctx.fill();
       }
     }
@@ -109,7 +116,7 @@ export default function HeroBackground() {
       ctx.clearRect(0, 0, width, height);
 
       // Draw subtle grid helper lines in the background for extra developer texture
-      ctx.strokeStyle = "rgba(2, 158, 215, 0.02)";
+      ctx.strokeStyle = `rgba(${primaryRgb}, 0.02)`;
       ctx.lineWidth = 0.5;
       const gridSize = 60;
       for (let x = 0; x < width; x += gridSize) {
@@ -146,7 +153,7 @@ export default function HeroBackground() {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(2, 158, 215, ${alpha})`;
+            ctx.strokeStyle = `rgba(${primaryRgb}, ${alpha})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -164,7 +171,7 @@ export default function HeroBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(2, 158, 215, ${alpha})`;
+            ctx.strokeStyle = `rgba(${primaryRgb}, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }

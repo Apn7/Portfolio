@@ -1,0 +1,185 @@
+%-------------------------
+% Resume in LaTeX — Ekramul Alam
+% Tailored for: Software Engineer (General) — Therap (BD) Ltd.
+% Based on the popular single-column ATS-friendly template
+%------------------------
+
+\documentclass[letterpaper,10.5pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.2in}
+
+\urlstyle{same}
+
+\raggedbottom
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Ensure PDF is machine readable (ATS)
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{%
+  \item\small{#1}\par\vspace{-2pt}%
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Ekramul Alam} \\ \vspace{4pt}
+    \small Dhaka, Bangladesh ~$|$~ +8801752729605 ~$|$~
+    \href{mailto:ekramul.alam21@gmail.com}{ekramul.alam21@gmail.com} ~$|$~
+    \href{https://github.com/Apn7}{\underline{GitHub}} ~$|$~
+    \href{https://www.linkedin.com/in/ekramul-alam-525659255/}{\underline{LinkedIn}} ~$|$~
+    \href{https://codeforces.com/profile/Apn7}{\underline{Codeforces}}
+    \vspace{-6pt}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{CSE graduate with competitive programming experience (Max Codeforces Rating: 1257) and strong foundations in Data Structures \& Algorithms, Computer Networks, and Operating Systems. Proficient in C++, Python, Java, JavaScript, and PHP, with hands-on full-stack development across MERN and Laravel ecosystems. Skilled in RESTful API design, relational databases (MySQL, PostgreSQL) and NoSQL (MongoDB), with clean OOP practices and design patterns. Familiar with AI-integrated development using LangChain and FastAPI. Known for clean coding, quick adaptability, and strong problem-solving ability, with the capacity to communicate technical concepts clearly and effectively.}
+\vspace{-4pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Khulna University of Engineering \& Technology}{Khulna, Bangladesh}
+      {Bachelor of Science in Computer Science and Engineering}{Mar 2022 -- Jul 2026}
+  \resumeSubHeadingListEnd
+\vspace{-6pt}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.0in, label={}]
+    \small{\item{
+     \textbf{Languages:} C, C++, Python, Java, JavaScript, PHP \\[1pt]
+     \textbf{Core CS:} Data Structures \& Algorithms, Operating Systems, Computer Networks, OOP, DBMS \\[1pt]
+     \textbf{Web \& Frameworks:} React.js, Next.js, Node.js, Express.js, FastAPI, Laravel 10 \\[1pt]
+     \textbf{Databases:} MySQL, PostgreSQL (Supabase), MongoDB, Eloquent ORM, Mongoose \\[1pt]
+     \textbf{AI/ML:} LangChain, Vector Embeddings, Prompt Engineering \\[1pt]
+     \textbf{Tools \& DevOps:} Git, Linux/Bash, CI/CD Pipelines, Cloudinary, JWT, REST APIs \\[1pt]
+     \textbf{Communication Skills:} English (Full professional and Academic proficiency), Bengali (Native proficiency)
+    }}
+ \end{itemize}
+\vspace{-8pt}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Full-Stack Web Developer (Part-time)}{Aug 2025 -- Present}
+      {TechnoPLUS IT -- Remote (Aus)}{}
+      \resumeItemListStart
+        \resumeItem{Built and maintained a Laravel 9 + Vue.js LMS using Porto/Apiato modular architecture, applying OOP and design patterns (Repository, Service, Observer) across 15+ domain containers}
+        \resumeItem{Independently researched and implemented a custom H5P interactive content integration from scratch, and designed RESTful APIs with role-based access control}
+        \resumeItem{Implemented relational database tables with ordered pivot tables, SoftDeletes, and JSON metadata columns to support a flexible multi-content-type lesson structure}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+%-----------PROJECT EXPERIENCE-----------
+\section{Project Experience}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Apn7/Computer-Network-Omnet-Project}{\underline{HTTP Request Prediction for Faster Web Response using OMNeT++}}} \textit{(C++)}}{Oct 2025}
+          \resumeItemListStart
+            \resumeItem{Simulated a multi-client HTTP caching system with a first-order Markov-based prediction engine that learns page transition probabilities and pre-caches high-confidence next pages above a configurable threshold}
+            \resumeItem{Built cache lifecycle management with TTL-based expiry, LRU eviction, and periodic cleanup; validated performance across 9 simulation configs (Baseline, Predictive, Sweep, HighLoad, etc.) with server-side latency and hit-rate metrics}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Apn7/Hackathon_Final}{\underline{AI-Powered Learning Platform}}} \textit{(Next.js, FastAPI, LangChain)}}{Jan 2026}
+          \resumeItemListStart
+            \resumeItem{Developed a university course assistant with AI-powered tutoring and intelligent content search using LangChain and vector embeddings}
+            \resumeItem{Engineered a FastAPI backend with Supabase (PostgreSQL) and row-level security, supporting real-time updates and separate role-based portals for students and instructors}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Apn7/System_Project}{\underline{Automated Healthcare System}}} \textit{(MERN Stack)}}{Nov 2024}
+          \resumeItemListStart
+            \resumeItem{Built a full-stack healthcare platform with React.js, Node.js, Express, and MongoDB featuring doctor appointment booking, pharmacy cart, blood donor search, and emergency ambulance services}
+            \resumeItem{Implemented JWT-based authentication with bcrypt password hashing and role-based access control (Admin, Moderator, User) with protected route middleware}
+            \resumeItem{Integrated Cloudinary for image storage and Nodemailer for transactional emails, following RESTful API design with a modular MVC backend structure}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Apn7/Laravel_Project}{\underline{MemeGrove -- Social Media Platform}}} \textit{(Laravel 10, MySQL)}}{May 2024}
+          \resumeItemListStart
+            \resumeItem{Designed and built a full-featured social platform from scratch with user authentication, image upload pipeline using Intervention Image, likes, comments, following system, and real-time event-driven notifications}
+            \resumeItem{Implemented a custom trending algorithm combining engagement metrics with time decay, alongside tag analytics, infinite scroll pagination, and an admin moderation dashboard}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+%-----------ACTIVITIES-----------
+\section{Activities}
+ \begin{itemize}[leftmargin=0.0in, label={}]
+    \small{\item{
+     \textbf{BUET CSE Fest 2026 Hackathon -- Finalist} $|$ Dhaka, Bangladesh $|$ Jan 2026 \\[1pt]
+     \textbf{BITFEST 2025 -- Executive Member} $|$ Khulna, Bangladesh $|$ Dec 2024 -- Jan 2025 \\[1pt]
+     \textbf{SGIPC (Special Group of Interest in Programming Contest) -- Campaign Editor} $|$ Khulna, Bangladesh $|$ Aug 2023 -- Present \\[1pt]
+     \textbf{Intra KUET Programming Contest 2023 -- Best Team 2k20 Award Winner} $|$ Khulna, Bangladesh $|$ 2024 \\[1pt]
+     \textbf{Inter-University Programming Contests (IUPC) -- Participant} $|$ KUET $|$ 2025
+    }}
+ \end{itemize}
+
+\end{document}

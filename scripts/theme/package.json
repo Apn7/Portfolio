@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-theme-tooling",
+  "private": true,
+  "type": "module",
+  "description": "Local-only build tooling: extracts a color palette from the profile photo. NOT part of the deployed app.",
+  "dependencies": {
+    "culori": "^4.0.1",
+    "sharp": "^0.33.5"
+  }
+}
