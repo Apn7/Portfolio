@@ -47,3 +47,12 @@ AGENTS.md
 # theme tooling — local-only build deps (not part of the deployed app)
 /scripts/theme/node_modules
 
+
+# LaTeX build artifacts (resume sources compile to committed PDFs)
+assets/docs/*.aux
+assets/docs/*.fdb_latexmk
+assets/docs/*.fls
+assets/docs/*.log
+assets/docs/*.out
+assets/docs/*.synctex.gz
+assets/docs/*.build.log
