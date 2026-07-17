@@ -856,6 +856,7 @@ button {
   font-size: var(--fs-sm);
   color: var(--text-secondary);
   line-height: 1.6;
+  white-space: pre-line;
 }
 
 @media (max-width: 768px) {
