@@ -56,3 +56,6 @@ assets/docs/*.log
 assets/docs/*.out
 assets/docs/*.synctex.gz
 assets/docs/*.build.log
+
+# Confidential — personal project reference, do NOT push
+project_context.md
