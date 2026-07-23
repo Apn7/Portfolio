@@ -1,7 +1,7 @@
 %-------------------------
 % Resume in LaTeX — Ekramul Alam
-% Tailored for: Software Engineer (General) — Therap (BD) Ltd.
-% Based on the popular single-column ATS-friendly template
+% Tailored for: Full-Stack Engineer (Laravel & React.js Focus)
+% Based on single-column ATS-friendly template
 %------------------------
 
 \documentclass[letterpaper,10.5pt]{article}
@@ -93,7 +93,7 @@
 
 %-----------SUMMARY-----------
 \section{Summary}
-\small{CSE graduate with competitive programming experience (Max Codeforces Rating: 1257) and strong foundations in Data Structures \& Algorithms, Computer Networks, and Operating Systems. Proficient in Java, C++, Python, JavaScript, and PHP, with hands-on backend and full-stack development across Java Spring Boot, MERN, and Laravel ecosystems. Skilled in RESTful API design, relational databases (MySQL, PostgreSQL) and NoSQL (MongoDB), with clean OOP practices and design patterns. Familiar with AI-integrated development using LangChain, vector search, and FastAPI. Known for clean coding, quick adaptability, and strong problem-solving ability, with the capacity to communicate technical concepts clearly and effectively.}
+\small{CSE graduate with competitive programming experience (Max Codeforces Rating: 1257) and strong foundations in Data Structures \& Algorithms, Computer Networks, and DBMS. Proficient in PHP, JavaScript, TypeScript, Python, and C++, with hands-on full-stack development experience across Laravel and React/Next.js ecosystems. Skilled in building RESTful APIs, designing relational database schemas (MySQL, PostgreSQL), building responsive frontend interfaces, and writing clean, maintainable OOP code. Known for practical problem solving, attention to detail and edge cases, and quick adaptability.}
 \vspace{-4pt}
 
 %-----------EDUCATION-----------
@@ -109,12 +109,11 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.0in, label={}]
     \small{\item{
-     \textbf{Languages:} C, C++, Python, Java, JavaScript, PHP \\[1pt]
-     \textbf{Core CS:} Data Structures \& Algorithms, Operating Systems, Computer Networks, OOP, DBMS \\[1pt]
-     \textbf{Web \& Frameworks:} Spring Boot, Spring Security, JPA/Hibernate, React.js, Next.js, Node.js, Express.js, FastAPI, Laravel 11 \\[1pt]
-     \textbf{Databases:} MySQL, PostgreSQL (Supabase, pgvector), MongoDB, Flyway, Eloquent ORM, Mongoose \\[1pt]
-     \textbf{AI/ML:} LangChain, Vector Embeddings, RAG, Prompt Engineering \\[1pt]
-     \textbf{Tools \& DevOps:} Git, Linux/Bash, Docker, CI/CD Pipelines, Cloudinary, JWT, OAuth2, REST APIs \\[1pt]
+     \textbf{Languages:} PHP, JavaScript, TypeScript, Python, C++, Java, C \\[1pt]
+     \textbf{Web \& Frameworks:} Laravel 11, React.js, Next.js, Node.js, Express.js, Spring Boot, FastAPI, Vue.js, Bootstrap 5, Tailwind CSS \\[1pt]
+     \textbf{Databases \& ORM:} MySQL, PostgreSQL (Supabase, pgvector), MongoDB, Eloquent ORM, Mongoose, JPA/Hibernate \\[1pt]
+     \textbf{Core CS \& Architecture:} RESTful APIs, OOP, Design Patterns (Repository, Service, Observer), DBMS, Data Structures \& Algorithms \\[1pt]
+     \textbf{Tools \& DevOps:} Git, Linux/Bash, Docker, Cloudinary, JWT, OAuth2, CI/CD Pipelines \\[1pt]
      \textbf{Communication Skills:} English (Full professional and Academic proficiency), Bengali (Native proficiency)
     }}
  \end{itemize}
@@ -139,33 +138,31 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-          {\textbf{\href{https://github.com/Apn7/Moviecrates}{\underline{Moviecrates -- AI Movie Recommender}}} \textit{(Java, Spring Boot, PostgreSQL)}}{Jul 2026}
+          {\textbf{\href{https://github.com/Apn7/Laravel_Project}{\underline{MemeGrove -- Social Media Platform}}} \textit{(Laravel 11, MySQL)}}{May 2024}
           \resumeItemListStart
-            \resumeItem{Built a multi-user movie-recommendation web app on a Java Spring Boot REST API backed by PostgreSQL + pgvector, with a Next.js/React frontend; containerized with Docker and deployed to Azure Container Apps}
-            \resumeItem{Implemented backend-owned Google OAuth2 login issuing stateless HS256 JWTs in httpOnly cookies, and enforced per-user data ownership at the repository layer to structurally prevent IDOR, verified by JUnit integration tests}
-            \resumeItem{Engineered an AI recommendation pipeline using Gemini embeddings and LLM generation over pgvector, with prompt-injection defenses, per-user rate limiting, and graceful degradation when AI keys are absent}
+            \resumeItem{Designed and built a full-featured social platform from scratch with user authentication, image upload pipeline using Intervention Image, likes, comments, following system, and real-time event-driven notifications}
+            \resumeItem{Implemented a custom trending algorithm combining engagement metrics with time decay, alongside tag analytics, infinite scroll pagination, and an admin moderation dashboard}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{\href{https://github.com/Apn7/Hackathon_Final}{\underline{AI-Powered Learning Platform}}} \textit{(Next.js, FastAPI, LangChain)}}{Jan 2026}
+          {\textbf{\href{https://github.com/Apn7/Moviecrates}{\underline{Moviecrates -- AI Movie Recommender}}} \textit{(Java, Spring Boot, Next.js / React 19, PostgreSQL)}}{Jul 2026}
+          \resumeItemListStart
+            \resumeItem{Built a multi-user movie recommendation platform with Next.js/React frontend and Spring Boot REST API backed by PostgreSQL + pgvector; containerized with Docker and deployed to Azure Container Apps}
+            \resumeItem{Engineered stateless Google OAuth2 auth issuing httpOnly JWT cookies, strict per-user repository boundaries to structurally eliminate IDOR risks, prompt-injection defenses, and per-user sliding-window rate limiting}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Apn7/Hackathon_Final}{\underline{AI-Powered Learning Platform}}} \textit{(Next.js, React 19, FastAPI, LangChain)}}{Jan 2026}
           \resumeItemListStart
             \resumeItem{Developed a university course assistant with AI-powered tutoring and intelligent content search using LangChain and vector embeddings}
             \resumeItem{Engineered a FastAPI backend with Supabase (PostgreSQL) and row-level security, supporting real-time updates and separate role-based portals for students and instructors}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{\href{https://github.com/Apn7/System_Project}{\underline{Automated Healthcare System}}} \textit{(MERN Stack)}}{Nov 2024}
+          {\textbf{\href{https://github.com/Apn7/System_Project}{\underline{Automated Healthcare System}}} \textit{(MERN Stack -- React.js, Node.js, Express, MongoDB)}}{Nov 2024}
           \resumeItemListStart
             \resumeItem{Built a full-stack healthcare platform with React.js, Node.js, Express, and MongoDB featuring doctor appointment booking, pharmacy cart, blood donor search, and emergency ambulance services}
-            \resumeItem{Implemented JWT-based authentication with bcrypt password hashing and role-based access control (Admin, Moderator, User) with protected route middleware}
-            \resumeItem{Integrated Cloudinary for image storage (user, doctor, and medicine uploads), following RESTful API design with a modular MVC backend structure}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{\href{https://github.com/Apn7/Laravel_Project}{\underline{MemeGrove -- Social Media Platform}}} \textit{(Laravel 11, MySQL)}}{May 2024}
-          \resumeItemListStart
-            \resumeItem{Designed and built a full-featured social platform from scratch with user authentication, image upload pipeline using Intervention Image, likes, comments, following system, and real-time event-driven notifications}
-            \resumeItem{Implemented a custom trending algorithm combining engagement metrics with time decay, alongside tag analytics, infinite scroll pagination, and an admin moderation dashboard}
+            \resumeItem{Implemented JWT-based authentication with bcrypt password hashing, role-based access control (Admin, Moderator, User), Cloudinary image uploads, and modular MVC RESTful API backend}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
