@@ -48,19 +48,10 @@ AGENTS.md
 /scripts/theme/node_modules
 
 
-# LaTeX build artifacts
-assets/docs/*.aux
-assets/docs/*.fdb_latexmk
-assets/docs/*.fls
-assets/docs/*.log
-assets/docs/*.out
-assets/docs/*.synctex.gz
-assets/docs/*.build.log
-
-# Tailored CV variants — local only.
-# The resume the site actually serves is public/assets/docs/Ekramul_Alam_Resume.pdf
-assets/docs/resume*.tex
-assets/docs/resume*.pdf
+# Ignore all files in assets/docs except Ekramul_Alam_Resume.tex and Ekramul_Alam_Resume.pdf
+assets/docs/*
+!assets/docs/Ekramul_Alam_Resume.tex
+!assets/docs/Ekramul_Alam_Resume.pdf
 
 # Confidential — personal project reference, do NOT push
 project_context.md
