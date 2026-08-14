@@ -48,10 +48,24 @@ AGENTS.md
 /scripts/theme/node_modules
 
 
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.build.log
+texput.log
+
 # Ignore all files in assets/docs except Ekramul_Alam_Resume.tex and Ekramul_Alam_Resume.pdf
 assets/docs/*
 !assets/docs/Ekramul_Alam_Resume.tex
 !assets/docs/Ekramul_Alam_Resume.pdf
+
+# Ignore all files in public/assets/docs except Ekramul_Alam_Resume.pdf
+public/assets/docs/*
+!public/assets/docs/Ekramul_Alam_Resume.pdf
 
 # Confidential — personal project reference, do NOT push
 project_context.md
