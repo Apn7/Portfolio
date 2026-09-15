@@ -859,6 +859,41 @@ button {
   white-space: pre-line;
 }
 
+.timeline__company {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.timeline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.timeline__list li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.timeline__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border: 2px solid var(--text-primary);
+  transform: rotate(45deg);
+}
+
 @media (max-width: 768px) {
   .resume__grid {
     grid-template-columns: 1fr;

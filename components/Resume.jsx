@@ -49,7 +49,12 @@ export default function Resume() {
                   <div className="timeline__card">
                     <span className="timeline__time">{item.time}</span>
                     <h4 className="timeline__title">{item.title}</h4>
-                    <p className="timeline__desc">{item.details}</p>
+                    <p className="timeline__company">{item.company}</p>
+                    <ul className="timeline__list">
+                      {item.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
